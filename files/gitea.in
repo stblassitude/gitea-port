@@ -23,6 +23,7 @@ load_rc_config $name
 
 command="%%PREFIX%%/sbin/${name} web"
 procname="%%PREFIX%%/sbin/${name}"
+githome="$(eval echo ~${gitea_user})"
 
 pidfile="/var/run/${name}.pid"
 
@@ -32,7 +33,7 @@ gitea_start() {
 	/usr/sbin/daemon -f -u ${gitea_user} -p ${pidfile} /usr/bin/env -i \
 		"GITEA_WORK_DIR=${gitea_shared}" \
 		"GITEA_CUSTOM=%%PREFIX%%/etc/${name}" \
-		"HOME=/var/run/${name}" \
+		"HOME=${githome}" \
 		"PATH=%%PREFIX%%/bin:${PATH}" \
 		"USER=%%GITUSER%%" \
 		$command
