@@ -33,7 +33,7 @@ gitea_start() {
 		"GITEA_WORK_DIR=${gitea_shared}" \
 		"GITEA_CUSTOM=%%PREFIX%%/etc/${name}" \
 		"HOME=/var/run/${name}" \
-		"PATH=${PATH}" \
+		"PATH=%%PREFIX%%/bin:${PATH}" \
 		"USER=%%GITUSER%%" \
 		$command
 }
