@@ -9,13 +9,14 @@ CATEGORIES=	www
 MAINTAINER=	stb@lassitu.de
 COMMENT=	Compact self-hosted Git service
 
-LICENSE=	APACHE20
+LICENSE=	MIT
+
+RUN_DEPENDS=	git:devel/git
 
 USES=		go
 USE_GITHUB=	yes
 GH_ACCOUNT=	go-gitea
 GH_TAGNAME=	cf045b0
-RUN_DEPENDS=	git:devel/git
 
 GO_PKGNAME=	code.gitea.io/${PORTNAME}
 GO_TARGET=	-tags "${GO_TAGS}"
