@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/gitea/Makefile 431075 2017-01-10 11:01:02Z robak $
 
 PORTNAME=	gitea
-PORTVERSION=	1.1.0
+PORTVERSION=	1.1.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www
 
