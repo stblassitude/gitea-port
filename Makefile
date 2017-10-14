@@ -1,8 +1,8 @@
 # Created by: Stefan Bethke <stb@lassitu.de>
-# $FreeBSD: head/www/gitea/Makefile 431075 2017-01-10 11:01:02Z robak $
+# $FreeBSD$
 
 PORTNAME=	gitea
-PORTVERSION=	1.1.4
+PORTVERSION=	1.2.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www
 
