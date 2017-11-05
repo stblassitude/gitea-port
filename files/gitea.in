@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $FreeBSD: head/www/gitea/files/gitea.in 426608 2016-11-20 17:34:39Z pi $
+# $FreeBSD: head/www/gitea/files/gitea.in 453097 2017-10-29 07:55:33Z tobik $
 #
 # PROVIDE: gitea
 # REQUIRE: NETWORKING SYSLOG
@@ -32,13 +32,8 @@ pidfile="/var/run/${name}.pid"
 start_cmd="${name}_start"
 
 gitea_start() {
-	daemon_args="-u ${gitea_user} -p ${pidfile}"
-	if printf '%s\n' $(freebsd-version) '11.1-RELEASE' | sort -CV; then
-		daemon_args="${daemon_args} -f"
-	else
-		daemon_args="${daemon_args} -S -l ${gitea_facility} -s ${gitea_priority} -t '${command}'"
-	fi
-	/usr/sbin/daemon ${daemon_args} \
+	/usr/sbin/daemon %%DAEMONARGS%% \
+		-u ${gitea_user} -p ${pidfile} \
 		/usr/bin/env -i \
 		"GITEA_WORK_DIR=${gitea_shared}" \
 		"GITEA_CUSTOM=%%PREFIX%%/etc/${name}" \
